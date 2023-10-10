@@ -23,7 +23,7 @@ install_github("ansheng0/melscore")
 2 Usage
 ----------
 
-1) load our scRNA_seq datas:
+1) load the melanoma malignant progression map at single-cell resolution, which served as the reference for subsequent inferences within bulk samples.
 ```````
 library(melscore)
 load(system.file("extdata/sc.dat.filtered.pc.rda", package = "melscore"))
@@ -31,7 +31,7 @@ dim(sc.dat.filtered.pc)
 #[1] 29470 16252
 ```````
 
-2) load our test bulk_seq data or input your bulk_seq count data to calculate cell ratio
+2) Load our example bulk RNA sequencing data or load your provided bulk RNA sequencing data, please ensure it includes count values, with rows representing samples and columns representing genes. During this process, we integrated the proportions of melanocytes from different stages of progression, ultimately forming a progression index score to represent the overall progression status of melanoma.
 ```````
 data(bk.dat,package="melscore")
 bk.dat[1:4,1:4]
@@ -51,7 +51,7 @@ sc.dat.filtered.pc[1:4,1:4]
 res0 <- Melanocyte_proportion(bk.dat=bk.dat, out_dir='./', key="Melanocyte_cluster4")
 ```````
 
-3) load our test clinical data or input your clinical data
+3) Please provide sample phenotype data. In this section, it can include clinical survival data as well as patient classification data. For example, you can refer to the sample data we provided to analyze the associations between different cell types and patient prognosis, as well as other phenotypes.
 ```````
 data(TCGA_SKCM_surv,package="melscore")
 head(TCGA_SKCM_surv)
@@ -70,7 +70,7 @@ res1 <- Melanocyte_proportion_clinical(out_dir='./', theta=theta, Clinical=Clini
 
 <img src="inst/extdata/SampleType_boxplot.png">
 
-4) load our test survival data or input your survival data
+4) Please supply survival data for investigating the correlation between various cell clusters / progression index and patient prognosis.
 ```````
 theta<-read.csv("./theta.csv", row.names=1)
 res2 <- Melanocyte_proportion_survival(out_dir='./', theta=theta, Survival=TCGA_SKCM_surv[,c('OS.time','OS')])
