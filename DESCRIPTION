@@ -1,0 +1,35 @@
+Package: melscore
+Title: Determining the Melanoma Progression Stage from Deconvolution Results
+Version: 1.0.0
+Authors@R: 
+    person("Xin", "Li", , "lixin920126@163.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-8140-0484"));
+    person("Jie", "Sun", , "2806254704@qq.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0006-8060-688X"));
+    person("Xu", "Pan", , "xyrlzypx@163.com", role = c("aut"),
+           comment = c(ORCID = "0009-0000-9886-2853"))
+Description: Utilizing the melanoma malignant progression map we've built at single-cell resolution, 'melscore' will deduce the proportions of melanoma cell infiltration linked to various levels of malignancy within bulk samples. Employing a scoring model, 'melscore' could compute the melanoma progression status for each sample, which will serve as a basis for subsequent functional and clinical-related analyses.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+NeedsCompilation: no
+Packaged: 2023-09-19 03:24:27 UTC; sunjie
+Author: Xin Li [aut, cre] (<https://orcid.org/0000-0001-8140-0484>),
+ Jie Sun [aut, cre] (<https://orcid.org/0009-0006-8060-688X>)
+ Xu Pan [aut] (<https://orcid.org/0009-0000-9886-2853>)
+Maintainer: Xin Li <lixin920126@163.com>
+Depends: R (>= 3.5.0)
+Imports: 
+    cluster,
+    factoextra,
+    ggplot2,
+    ggpubr,
+    ggthemes,
+    NbClust,
+    RColorBrewer,
+    reshape2,
+    Seurat,
+    survival,
+    survminer
+LazyData: true
